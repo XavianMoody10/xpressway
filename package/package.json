@@ -1,0 +1,29 @@
+{
+  "name": "create-xpressway",
+  "version": "1.0.0",
+  "description": "Xpressway – A fast, minimal scaffolding tool to spin up a fully configured Express.js server in seconds. Perfect for prototyping, teaching, or jump-starting production apps with sensible defaults.",
+  "main": "./bin/index.js",
+  "type": "module",
+  "bin": {
+    "create-xpressway": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XavianMoody10/xpressway.git"
+  },
+  "author": "Xavian Moody",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XavianMoody10/xpressway/issues"
+  },
+  "homepage": "https://github.com/XavianMoody10/xpressway#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "inquirer": "^12.9.1",
+    "nodemon": "^3.1.10"
+  }
+}

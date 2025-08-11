@@ -1,0 +1,6 @@
+import { getSum } from "../helpers/sum.helper";
+
+export function findTheSumeOfTwoNumbers(req, res) {
+  const sum = getSum(1, 2);
+  res.send(sum);
+}
