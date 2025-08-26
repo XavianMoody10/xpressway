@@ -38,3 +38,58 @@ export function changeNameValueInPackageJsonFile(
 
   fs.writeFileSync(toFilePath, content, "utf8");
 }
+
+export function checkIfDirectoryExist(pathToDirectory) {
+  return fs.existsSync(pathToDirectory);
+}
+
+export function createDirectory(pathOfDirectory) {
+  fs.mkdirSync(pathOfDirectory);
+}
+
+export function insertLineOfCodeAboveALineInFile(
+  filePath,
+  newLine,
+  aboveWhatLine
+) {
+  let data = fs.readFileSync(filePath, "utf8");
+
+  let lines = data.split("\n");
+
+  const index = lines.findIndex((line) => line.includes(aboveWhatLine));
+
+  if (index !== -1) {
+    lines.splice(index, 0, newLine);
+  }
+
+  fs.writeFileSync(filePath, lines.join("\n"), "utf8");
+}
+
+export function getLastLineWithText(filePath, text) {
+  const data = fs.readFileSync(filePath, "utf8");
+  const lines = data.split("\n");
+
+  let lastImportLine = null;
+  let lastImportIndex = -1;
+
+  lines.forEach((line, idx) => {
+    if (line.trim().startsWith(text)) {
+      lastImportLine = line;
+      lastImportIndex = idx;
+    }
+  });
+
+  return { line: lastImportLine, index: lastImportIndex };
+}
+
+export function insertLineOfCodeBelowALineInFile(filePath, lineIndex, newText) {
+  const data = fs.readFileSync(filePath, "utf8");
+  const lines = data.split("\n");
+
+  if (lineIndex >= 0 && lineIndex < lines.length) {
+    lines.splice(lineIndex + 1, 0, newText); // insert after the target line
+    fs.writeFileSync(filePath, lines.join("\n"), "utf8");
+  } else {
+    console.log("Invalid line index");
+  }
+}

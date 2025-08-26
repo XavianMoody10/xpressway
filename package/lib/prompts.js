@@ -26,3 +26,21 @@ export async function initialProjectSetupPrompt() {
     console.log("Initial User Prompt error has occured");
   }
 }
+
+export async function promptMockServiceWorker() {
+  try {
+    const answers = inquirer.prompt([
+      {
+        type: "confirm",
+        name: "msw",
+        message: "Do you want to apply Mock Service Worker",
+        default: true,
+      },
+    ]);
+
+    return answers;
+  } catch (error) {
+    console.log(error);
+    console.log("Mock Server setup was canceled");
+  }
+}

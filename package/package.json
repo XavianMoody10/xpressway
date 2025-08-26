@@ -5,7 +5,8 @@
   "main": "./bin/index.js",
   "type": "module",
   "bin": {
-    "create-xpressway": "./bin/index.js"
+    "create-xpressway": "./bin/index.js",
+    "msw-xpressway": "./bin/setupmsw.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
